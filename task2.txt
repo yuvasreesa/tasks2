@@ -1,0 +1,32 @@
+INSERT INTO categories (category_name) VALUES
+('Fiction'),('Science'),('History'),('Technology');
+
+INSERT INTO books (title, author, category_id) VALUES
+('The Time Machine', 'H.G. Wells', 1),('A Brief History of Time', 'Stephen Hawking', 2),('Sapiens', 'Yuval Noah Harari', 3),
+('Clean Code', 'Robert C. Martin', 4),
+('Unknown Book', NULL, NULL); 
+
+INSERT INTO members (name, email, phone) VALUES
+('John Doe', 'john@example.com', '1234567890'),
+('Jane Smith', 'jane@example.com', '9876543210'),
+('Alice Johnson', NULL, '1122334455'),  ('Bob Brown', 'bob@example.com', NULL); 
+
+INSERT INTO loans (book_id, member_id, loan_date, due_date) VALUES
+(1, 1, '2024-06-01', '2024-06-15'),
+(2, 2, '2024-06-10', '2024-06-24'),
+(3, 3, '2024-06-15', NULL);
+UPDATE books
+SET author = 'Unknown Author'
+WHERE author IS NULL;
+
+UPDATE members
+SET email = 'noemail@library.com'
+WHERE email IS NULL;
+UPDATE loans
+SET due_date = '2024-06-20'
+WHERE member_id = 1;
+DELETE FROM members
+WHERE phone IS NULL;
+
+DELETE FROM loans
+WHERE book_id = 2;
